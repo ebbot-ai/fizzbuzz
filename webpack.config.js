@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const common = {
-  mode: process.env.NODE_ENV || 'production',
+  mode: process.env.NODE_ENV || "production",
   optimization: {
-    usedExports: true
+    usedExports: true,
   },
   module: {
     rules: [
@@ -14,44 +14,44 @@ const common = {
         test: /\.tsx?$/,
         use: [
           {
-            loader: 'ts-loader',
+            loader: "ts-loader",
             options: {
-              configFile: path.resolve(__dirname, 'src/client/tsconfig.json')
-            }
-          }
+              configFile: path.resolve(__dirname, "src/client/tsconfig.json"),
+            },
+          },
         ],
-        include: [path.resolve(__dirname, 'src')]
+        include: [path.resolve(__dirname, "src")],
       },
       {
         test: /\.(png|jp(e*)g|woff2?)$/,
         use: [
           {
-            loader: 'file-loader'
-          }
-        ]
-      }
-    ]
+            loader: "file-loader",
+          },
+        ],
+      },
+    ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js'],
+    extensions: [".tsx", ".ts", ".jsx", ".js"],
     alias: {
-      t: path.resolve(__dirname, 'src/shared/')
-    }
-  }
+      t: path.resolve(__dirname, "src/shared/"),
+    },
+  },
 };
 
 const clientConfig = {
   ...common,
 
-  name: 'client',
-  target: 'web',
+  name: "client",
+  target: "web",
 
   entry: {
-    index: './src/client/index.tsx'
+    index: "./src/client/index.tsx",
   },
   output: {
-    path: path.resolve(__dirname, 'dist_client'),
-    filename: '[name].bundle.js'
+    path: path.resolve(__dirname, "dist_client"),
+    filename: "[name].bundle.js",
   },
 
   devServer: {
@@ -59,24 +59,24 @@ const clientConfig = {
     open: true,
     https: false,
     historyApiFallback: {
-      index: '/'
+      index: "/",
     },
     hot: true,
     client: {
       overlay: {
-        warnings: false
-      }
+        warnings: false,
+      },
     },
     proxy: [
       {
-        context: ['/chat'],
-        target: 'ws://localhost:8086',
-        ws: true
-      }
-    ]
+        context: ["/chat"],
+        target: "ws://localhost:3000",
+        ws: true,
+      },
+    ],
   },
 
-  plugins: [new HtmlWebpackPlugin()]
+  plugins: [new HtmlWebpackPlugin()],
 };
 
 module.exports = clientConfig;
