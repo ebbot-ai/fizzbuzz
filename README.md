@@ -20,8 +20,14 @@ Use this repository for creating a chat based [fizz buzz](https://en.wikipedia.o
 
 ## Client
 
-The client should consist of a chat window/bubble of your own design, perhaps using the included MUI component library. The client should connect to the server using Socket.IO, send any message the user enters and display any message the server responds with.
+The client should consist of a chat window of your own design, perhaps using the included MUI component library. The client should connect to the server using Socket.IO, send any message the user enters and display any message the server responds with.
 
 ## Server
 
 The server should act as player of the fizz buzz game against the user that's using the client. For example, when the user starts the game by sending the message "1", the server should respond with "2". Since the user is the only actor that can lose this game (hopefully), the server should notify the player that he/she has lost. It should be possible to restart the game from the beginning.
+
+The server should also keep track of a play session's high score which can be retrieved with a special command such as "!highscore" (by the user). The high score doesn't need to be persistent across sessions. However, if you feel like you have time left, feel free to add persistent high scores.
+
+---
+
+Feel free to install additional packages if you need to and don't hesitate to contact us if you encounter any issues.
