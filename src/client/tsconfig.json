@@ -3,7 +3,13 @@
   "compilerOptions": {
     "jsx": "react",
     "module": "ESNext",
-    "lib": ["ESNext", "DOM", "WebWorker"]
+    "lib": [
+      "ESNext",
+      "DOM",
+      "WebWorker"
+    ]
   },
-  "include": ["./", "../src/shared"]
+  "include": [
+    "./"
+  ]
 }

@@ -55,7 +55,7 @@ const clientConfig = {
   },
 
   devServer: {
-    port: 3001,
+    port: 3000,
     open: true,
     https: false,
     historyApiFallback: {
@@ -70,7 +70,7 @@ const clientConfig = {
     proxy: [
       {
         context: ["/chat"],
-        target: "ws://localhost:3000",
+        target: "ws://localhost:3001",
         ws: true,
       },
     ],
